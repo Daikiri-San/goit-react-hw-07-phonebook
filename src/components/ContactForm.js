@@ -141,9 +141,7 @@ class ContactForm extends Component {
     return (
       <>
         <Notification message={notice} apearNotice={apearNotice} />
-        {hasError && (
-          <Notification message={hasError.message} apearNotice={true} />
-        )}
+        {hasError && <Notification message={hasError} apearNotice={true} />}
         <Formik
           initialValues={{ name: '', number: '' }}
           validate={values => {

@@ -29,13 +29,12 @@ const removeContact = id => dispatch => {
   dispatch(contactsActions.removeContactRequest());
 
   axios
-    .delete(`/contacts/${id}`)
+    .delete(`/contacts/${7}`)
     .then(() => {
       dispatch(contactsActions.removeContactSuccess(id));
     })
     .catch(error => {
-      console.log(error);
-      dispatch(contactsActions.removeContactError('error'));
+      dispatch(contactsActions.removeContactError(error.messege));
     });
 };
 
