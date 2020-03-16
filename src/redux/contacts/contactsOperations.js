@@ -29,7 +29,7 @@ const removeContact = id => dispatch => {
   dispatch(contactsActions.removeContactRequest());
 
   axios
-    .delete(`/contacts/${7}`)
+    .delete(`/contacts/${id}`)
     .then(() => {
       dispatch(contactsActions.removeContactSuccess(id));
     })

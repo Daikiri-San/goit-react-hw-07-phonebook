@@ -1,9 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import withThemeContext from '../hoc/withTheme';
-import contactsOperations from '../../redux/contacts/contactsOperations';
-import contactsSelectors from '../../redux/contacts/contactsSelectors';
 
 const Item = styled.li`
   max-width: 54rem;
@@ -64,18 +60,4 @@ function ListItem({ name, number, onRemoveContact, theme }) {
   );
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  ...contactsSelectors.getTaskById(state, ownProps.id),
-});
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onRemoveContact: () =>
-      dispatch(contactsOperations.removeContact(ownProps.id)),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withThemeContext(ListItem));
+export default ListItem;

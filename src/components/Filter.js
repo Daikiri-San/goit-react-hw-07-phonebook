@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import contactsActions from '../redux/contacts/contactsActions';
-import withThemeContext from './hoc/withTheme';
 
 const Container = styled.div`
   margin-bottom: 3rem;
@@ -46,14 +43,4 @@ function Filter({ value, onChangeFilter, theme }) {
   );
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onChangeFilter: str => dispatch(filterActions.changeFilter(str)),
-//   };
-// };
-
-const mapDispatchToProps = {
-  onChangeFilter: contactsActions.changeFilter,
-};
-
-export default connect(null, mapDispatchToProps)(withThemeContext(Filter));
+export default Filter;

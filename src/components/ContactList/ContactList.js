@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import contactsSelectors from '../../redux/contacts/contactsSelectors';
 import TextNotification from '../TextNotification';
-import ListItem from './ListItem';
+import ListItem from './ListItemContainer';
 import slideItemTransition from '../transitions/slideItem.module.css';
 
 const List = styled.ul`
@@ -49,11 +47,4 @@ ContactList.propTypes = {
   ]),
 };
 
-const mapStateToProps = state => {
-  return {
-    contacts: contactsSelectors.getContacts(state),
-    visibleContacts: contactsSelectors.getVisibleContacts(state),
-  };
-};
-
-export default connect(mapStateToProps)(ContactList);
+export default ContactList;
