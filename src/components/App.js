@@ -8,14 +8,14 @@ import Header from './Header';
 import Spinner from './Spinner';
 import '../base.css';
 
-function App({ contacts, isLoadingContacts }) {
+function App({ isLoadingContacts }) {
   return (
     <ThemeContext>
       <Layout>
         {isLoadingContacts && <Spinner />}
         <Header text={'Phonebook'} />
         <ContactForm />
-        {contacts.length >= 2 && <Filter />}
+        <Filter />
         <ContactList />
       </Layout>
     </ThemeContext>

@@ -17,7 +17,6 @@ class AppContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    contacts: contactsSelectors.getContacts(state),
     isLoadingContacts: contactsSelectors.getLoading(state),
   };
 };

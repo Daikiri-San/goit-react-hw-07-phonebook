@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
+import scaleTransition from './transitions/scale.module.css';
 
 const Container = styled.div`
   margin-bottom: 3rem;
@@ -27,19 +29,26 @@ const Input = styled.input`
   }
 `;
 
-function Filter({ value, onChangeFilter, theme }) {
+function Filter({ value, onChangeFilter, theme, appear }) {
   return (
-    <Container shadow={theme.config.mainShadowBox}>
-      <Label>
-        Find contacts by name
-        <Input
-          backGroundColor={theme.config.inputColor}
-          type="text"
-          value={value}
-          onChange={({ target: { value } }) => onChangeFilter(value)}
-        />
-      </Label>
-    </Container>
+    <CSSTransition
+      timeout={250}
+      classNames={scaleTransition}
+      in={appear}
+      unmountOnExit
+    >
+      <Container shadow={theme.config.mainShadowBox}>
+        <Label>
+          Find contacts by name
+          <Input
+            backGroundColor={theme.config.inputColor}
+            type="text"
+            value={value}
+            onChange={({ target: { value } }) => onChangeFilter(value)}
+          />
+        </Label>
+      </Container>
+    </CSSTransition>
   );
 }
 
