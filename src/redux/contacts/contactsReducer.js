@@ -30,9 +30,10 @@ const loading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [contactsActions.fetchExistContactsError]: (_, { payload }) => payload,
-  [contactsActions.addContactError]: (_, { payload }) => payload,
-  [contactsActions.removeContactError]: (_, { payload }) => payload,
+  [contactsActions.fetchExistContactsError]: (_, { payload }) =>
+    payload.message,
+  [contactsActions.addContactError]: (_, { payload }) => payload.message,
+  [contactsActions.removeContactError]: (_, { payload }) => payload.message,
   [contactsActions.fetchExistContactsRequest]: () => null,
   [contactsActions.addContactRequest]: () => null,
   [contactsActions.removeContactRequest]: () => null,

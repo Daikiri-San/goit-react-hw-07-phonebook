@@ -1,9 +1,10 @@
 import axios from 'axios';
 import contactsActions from './contactsActions';
 
-const AUTH_TOKEN = 'f8e86dbe-f442-4cf4-9aab-e905dfbf0cb3';
+const AUTH_TOKEN =
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTg2MjVhMjkyYWE0MDAwMTc1NmViNGIiLCJpYXQiOjE1ODU4NDk3NjJ9.1Om75vMwZ92vQ2qS5U7ctfC6Kgjtlmy2fuwt_cgIrbI';
 
-axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com/v1';
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com/';
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
